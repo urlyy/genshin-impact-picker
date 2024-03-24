@@ -1,94 +1,54 @@
-# 原神抽卡点名器
+<div align="center">
+
+# 原神抽卡模拟器
+
+[文档](http://docs.mznet.pro)·[下载](https://github.com/cyanial/genshin-impact-picker/releases/latest)
+
 ![原神点名器](https://stats.deeptrain.net/repo/cyanial/genshin-impact-picker/?theme=light)
 
-[![Release](https://github.com/cyanial/genshin-impact-picker/actions/workflows/release.yml/badge.svg)](https://github.com/cyanial/genshin-impact-picker/actions/workflows/release.yml)[![Pages](https://github.com/cyanial/genshin-impact-picker/actions/workflows/page.yml/badge.svg)](https://github.com/cyanial/genshin-impact-picker/actions/workflows/page.yml)[![Build app](https://github.com/cyanial/genshin-impact-picker/actions/workflows/app.yml/badge.svg)](https://github.com/cyanial/genshin-impact-picker/actions/workflows/app.yml)
+</div>
 
-[在线demo](https://picker.shawn404.top)
+[![发布状态](https://github.com/cyanial/genshin-impact-picker/actions/workflows/release.yml/badge.svg)](https://github.com/cyanial/genshin-impact-picker/actions/workflows/release.yml) [![页面状态](https://github.com/cyanial/genshin-impact-picker/actions/workflows/page.yml/badge.svg)](https://github.com/cyanial/genshin-impact-picker/actions/workflows/page.yml) [![应用构建状态](https://github.com/cyanial/genshin-impact-picker/actions/workflows/app.yml/badge.svg)](https://github.com/cyanial/genshin-impact-picker/actions/workflows/app.yml)
 
-## Note
+## 注意
 
-> Thanks for [approve](https://github.com/Mantan21/Genshin-Impact-Wish-Simulator/issues/95) from author of [Genshin-Impact-Wish-Simulator](https://github.com/Mantan21/Genshin-Impact-Wish-Simulator).
-### 使用
->将网站运行目录设置为genshin-impact-picker-main/electron-static/static文件夹
->
->支持自定义明星，格式为明星+空格+姓名（如5 张三，每行一个）
->
->提交名单(txt格式)在页面左上角问号里提交
+> 感谢 [Genshin-Impact-Wish-Simulator](https://github.com/Mantan21/Genshin-Impact-Wish-Simulator) 作者的[批准](https://github.com/Mantan21/Genshin-Impact-Wish-Simulator/issues/95)。
 
-### Docker部署
-```shell
-   docker run -d --name ysdm \
-      -p 8000:80 \
-      maizig/ysdm:1.1.0
-```
- > 运行成功后，宿主机映射地址为 `http://localhost:8000`，使用 Nginx / Apache 进行反代是一个不错的选择（以及 SSL 配置）
+## 使用方法
 
-### 前端开发
+>以下任一方式完成后，请查看[配置教程](http://docs.mznet.pro/users/configure)
 
-前端代码在目录 `Genshin-Impact-Wish-Simulator` . 基于 `Svelte` 框架.
+### 应用程序(推荐)
 
-#### 二次开发
+从[github release](https://github.com/cyanial/genshin-impact-picker/releases/latest)中按照发行说明来获取对应系统的程序包即可
 
-```bash
-$ npm run install
-$ npm run dev
-```
+### 公共站点
 
-### 打包exe
+> 尽量先使用应用程序，站点可能存在网络波动
 
-#### Electron
+> 欢迎大家在不影响正常使用的情况下，分享自己部署的点名器站点，以供大家共同使用：
 
-在 `Genshin-Impact-Wish-Simulator` 中执行
+1. [dm.mznet.pro](https://dm.mznet.pro)
+  > 本站点使用Cloudflare减速器，可能会有一定的访问延迟，请保持耐心。我将尽力保持长期运营。
+2. [genshin.jerryz.com.cn](https://genshin.jerryz.com.cn/)
+3. [demo-picker.shawn404.top](https://demo-picker.shawn404.top)
 
-```bash
-$ npm run build
-```
+更多的公共站点可在[文档：公共站点](http://docs.mznet.pro/users/public)中查看
 
-将生成的静态文件 `.vercel/static` 拷贝到 `electron-static/static` 目录中, 覆盖掉.
+## 更多
 
-进入 `electron-static` 目录执行
+更多的使用方法及开发文档可在[这里](http://docs.mznet.pro)查看
 
-```bash
-$ npm install
-$ npm run build (生成当前系统可执行文件)
-$ npm run build-win (生成win32-x64)
-```
-
-#### Tauri
-
-使用Tauri打包的体积较小，因为其调用系统webview，打包体积可减少200-300M  127M(tauri打包)  418M(electron打包)
-
-> ps: tauri由于调用系统webview，因此不支持win10以下的系统，但可通过配置文件内置webview解决，具体见：https://tauri.app/zh-cn/v1/guides/building/windows 的`Supporting Windows 7`这一部分
-
-在 `Genshin-Impact-Wish-Simulator` 中执行
-
-```bash
-$ npm run tauri build
-```
-
-### Deploy with Netlify
-
-通过本按钮可直接一键部署至Netlify（本仓库已内置配置文件，**懒人专用**)
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cyanial/genshin-impact-picker&base=Genshin-Impact-Wish-Simulator)
-
-
-### Deploy with Vercel
-
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/cyanial/genshin-impact-picker)
-
-部署成功后，点击 `Settings-General` , 将 `Build & Development Settings` 下的`Root Directory` 设置为 `Genshin-Impact-Wish-Simulator`。回到 `Deployments` 下，点击当前部署最右侧的三个点，选择 `Redeploy`，等待部署完成后访问 Vercel 提供的域名即可使用。
 ## 许可证
 
-本仓库使用了`CC BY-NC-SA 4.0`协议，不可用于商业用途
+本项目采用 `CC BY-NC-SA 4.0` 许可证，不得用于商业用途。
 
-### 原仓库：WishSimulator(MIT协议)
+### 原仓库许可证：WishSimulator（MIT 许可证）
 
 ```
 MIT License
 
-Copyright (c) 2022 WishSImulator.App
+Copyright (c) 2022 WishSimulator
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
