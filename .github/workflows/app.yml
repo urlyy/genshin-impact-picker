@@ -8,7 +8,6 @@ on:
       - main # default branch
     paths:
       - electron-static/**/**
-      - Genshin-Impact-Wish-Simulator/src/**/**
       - Genshin-Impact-Wish-Simulator/src-tauri/**/**
  pull_request:
     branches:
@@ -19,25 +18,21 @@ on:
 
 
 jobs:
-  Page:
-    name: Build Pages
-    uses: ./.github/workflows/page.yml
   Build-app:
     name: Build app with Electron
-    needs: Page
     strategy:
       fail-fast: false
       matrix:
         os: [windows,ubuntu,macos]
     runs-on: ${{ matrix.os }}-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.1.1
       - name: Use Node.js 20.x
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.0.2
         with:
           node-version: "20"
       - name: Cache NPM dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4.0.2
         with:
           path: ./electron-static/node_modules
           key: ${{ runner.os }}-npm-app-cache
@@ -47,16 +42,6 @@ jobs:
         run: |
          cd electron-static
          yarn install
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-      - name: extract new
-        if: runner.os == 'Linux' || runner.os == 'macOS'
-        run: |          
-         7z x ./frontend -oelectron-static/ -y
-      - name: extract new(For Windows)
-        if: runner.os == 'windows'
-        run: |          
-         7z x .\frontend -oelectron-static/ -y
       - name: Build
         run: |
          cd electron-static
@@ -66,7 +51,7 @@ jobs:
          cd electron-static
          7z a -tzip genish-impact-${{ runner.os }}-x64.zip ./genish-impact-*
       - name: Upload (${{ runner.os }})
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: genish-impact-${{ runner.os }}
           path: electron-static/genish-impact-${{ runner.os }}-x64.zip
