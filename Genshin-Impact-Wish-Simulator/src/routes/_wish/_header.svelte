@@ -94,7 +94,8 @@
 			<img src={$assets['brand.png']} alt="Brand" crossorigin="anonymous" />
 
 			{#if !$editorMode}
-				<span> {$t('wish.wishTitle')} </span>
+				<!-- <span> {$t('wish.wishTitle')} </span> -->
+				<span> 祈愿 </span>
 			{:else}
 				<span> {$t('customBanner.title')} </span>
 			{/if}
@@ -106,7 +107,7 @@
 				<i class="gi-chat" />
 			</button> -->
 
-			{#if !$isPWA || !$isMobile}
+			<!-- {#if !$isPWA || !$isMobile}
 				<button
 					class="fullscreen"
 					on:click={handleFullscreen}
@@ -115,7 +116,7 @@
 				>
 					<i class="gi-{!fullscreen ? 'fullscreen' : 'shrink'}" />
 				</button>
-			{/if}
+			{/if} -->
 		</h1>
 		<div class="budget">
 			{#if !$editorMode}
@@ -129,17 +130,20 @@
 						</MyFund>
 					{/if}
 
-					<MyFund type="primogem" plusbutton>
-						{unlimitedWish ? '∞' : $primogem}
+					<!-- <MyFund type="primogem" plusbutton> -->
+					<MyFund type="primogem">
+						<!-- {unlimitedWish ? '∞' : $primogem} -->
+						{unlimitedWish ? '无限' : $primogem}
 					</MyFund>
 					<MyFund type={event ? 'intertwined' : 'acquaint'}>
-						{unlimitedWish ? '∞' : balance}
+						<!-- {unlimitedWish ? '∞' : balance} -->
+						{unlimitedWish ? '无限' : balance}
 					</MyFund>
 				</div>
 
-				<button class="close" on:click={previousClick} title="Change Banner">
+				<!-- <button class="close" on:click={previousClick} title="Change Banner">
 					<i class="gi-close" />
-				</button>
+				</button> -->
 				<button class="close" on:click={closeWindows} title="close">
 					<i class="gi-close" />
 				</button>

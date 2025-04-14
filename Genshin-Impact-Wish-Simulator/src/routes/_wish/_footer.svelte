@@ -149,7 +149,7 @@
 				{#if bannerType === 'weapon-event'}
 					<EpitomizedButton />
 				{/if}
-				<div class="wish">
+				<!-- <div class="wish">
 					<div class="starglitter">
 						<Icon type="starglitter" />
 						<span> {$starglitter} </span>
@@ -158,7 +158,7 @@
 						<Icon type="stardust" />
 						<span> {$stardust} </span>
 					</div>
-				</div>
+				</div> -->
 			{/if}
 		</div>
 	{/if}
@@ -166,17 +166,20 @@
 	<div class="row" style="--bg:url({$assets['button.webp']})">
 		{#if !$editorMode}
 			<div class="left menu-button">
-				<ButtonGeneral on:click={() => changePage('shop')}>
+				<!-- <ButtonGeneral on:click={() => changePage('shop')}> -->
+				<ButtonGeneral>
 					{#if hasNewOutfit}
 						<NoticeMark name={openedNotices} style="transform: translateX(70%) translateY(-80%)" />
 					{/if}
 					{$t('shop.text')}
 				</ButtonGeneral>
 
-				<ButtonGeneral on:click={() => changePage('inventory')}>
+				<!-- <ButtonGeneral on:click={() => changePage('inventory')}> -->
+				<ButtonGeneral>
 					{$t('inventory.text')}
 				</ButtonGeneral>
-				<ButtonGeneral on:click={() => changePage('history')}>
+				<!-- <ButtonGeneral on:click={() => changePage('history')}> -->
+				<ButtonGeneral>
 					{$t('history.text')}
 				</ButtonGeneral>
 			</div>

@@ -94,9 +94,9 @@ export const initializeBanner = async ({ patch, phase }) => {
 
 		list.push({ type: 'member', stdver, ...memFeatured});
 
-		events.featured.forEach((eventdata) => list.push({ ...eventdata, ...charEventBanner }));
-		list.push({ type: 'weapon-event', stdver, ...weapons });
-		list.push({ type: 'standard', stdver, ...stdFeatured });
+		// events.featured.forEach((eventdata) => list.push({ ...eventdata, ...charEventBanner }));
+		// list.push({ type: 'weapon-event', stdver, ...weapons });
+		// list.push({ type: 'standard', stdver, ...stdFeatured });
 
 		bannerList.set(list);
 		isFatepointSystem.set(!!weapons.fatepointsystem);

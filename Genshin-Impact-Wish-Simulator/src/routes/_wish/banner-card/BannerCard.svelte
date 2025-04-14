@@ -127,9 +127,11 @@
 		{/if}
 
 		<div class="info">
-			<button class="detail" on:click={openDetails}> {$t('details.text')} </button>
+			<!-- <button class="detail" on:click={openDetails}> {$t('details.text')} </button> -->
+			<button class="detail"> {$t('details.text')} </button>
 			{#if type !== 'beginner'}
-				<button class="gear" on:click={editProb}><i class="gi-gear" /></button>
+				<!-- <button class="gear" on:click={editProb}><i class="gi-gear" /></button> -->
+				<button class="gear"><i class="gi-gear" /></button>	
 			{/if}
 		</div>
 	</div>

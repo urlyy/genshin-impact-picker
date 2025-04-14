@@ -182,7 +182,7 @@
 		];
 
 		if (!stardustQty && !starglitterQty) return;
-		showObtained(obtainedItems);
+		// showObtained(obtainedItems);
 	};
 </script>
 
