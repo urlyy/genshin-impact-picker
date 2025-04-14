@@ -4,7 +4,13 @@ fork 自 https://github.com/6DDUU6/genshin-impact-picker
 进行了修改，为了解决我的一个教师朋友的需求：
 1. 每次抽名字出的颜色跟星星数量都是随机的，想要固定为五星和金色。(参考`./webdocs/docs/users/configure.md`)
 2. 除了第一个池子，后面的池子就是抽卡模拟游戏，放到教室电脑里学生会玩，想要删掉后面的池子。(见`./Genshin-Impact-Wish-Simulator/src/lib/helpers/banner-loader.js`的97行)
+3. 其他按钮，例如商城等，都关闭跳转。(通过定位各按钮，删除点击事件实现)
 
+使用了原项目实现的tauri打包而非electron，在希沃白板上的win10系统够用了，而且包体积相比electron减小1～2倍。
+
+
+# download
+https://github.com/urlyy/genshin-impact-picker/releases/tag/v1.0 里的 `stu-picker.exe`
 
 # dev
 <!-- ## 1. 修改页面 -->
